@@ -13,10 +13,10 @@ stages:
       tag: "${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:latest"
       pushRemote: true
       registry: "harbor-dev.iiidevops.org"
-    when:
-      branch:
-        include:
-        - skip
+  when:
+    branch:
+      include:
+      - skip
       
 - name: Test--Sonarqube source code scan
   steps:
@@ -31,11 +31,11 @@ stages:
         git.repoName: "${CICD_GIT_REPO_NAME}"
         git.url: "${CICD_GIT_URL}"
         pipeline.sequence: "${CICD_EXECUTION_SEQUENCE}"
-    when:
-      branch:
-        include:
-        - master
-        - develop
+  when:
+    branch:
+      include:
+      - master
+      - develop
 
 - name: Test--Checkmarx source code scan
   steps:
@@ -78,10 +78,10 @@ stages:
     - sourceKey: rancher-url
       sourceName: rancher
       targetKey: rancher_url
-    when:
-      branch:
-        include:
-        - skip
+  when:
+    branch:
+      include:
+      - skip
 
 - name: "Deploy--Web"
   steps:
@@ -98,10 +98,10 @@ stages:
         harbor.host: "harbor-dev.iiidevops.org"
         web.imageTag: "${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:latest"
         web.port: 3000
-    when:
-      branch:
-        include:
-        - skip
+  when:
+    branch:
+      include:
+      - skip
 
 - name: "Deploy--Wait Web deployment"
   steps:
@@ -120,10 +120,10 @@ stages:
     - sourceKey: "rancher-url"
       sourceName: "rancher"
       targetKey: "rancher_url"
-    when:
-      branch:
-        include:
-        - skip
+  when:
+    branch:
+      include:
+      - skip
 
 - name: "Test--Postman"
   steps:
@@ -140,10 +140,10 @@ stages:
         pipeline.sequence: "${CICD_EXECUTION_SEQUENCE}"
         web.deployName: "${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web"
         web.port: 3000
-    when:
-      branch:
-        include:
-        - skip
+  when:
+    branch:
+      include:
+      - skip
 
 - name: "Test--Webinspect"
   steps:
@@ -159,10 +159,10 @@ stages:
         git.url: "${CICD_GIT_URL}"
         pipeline.sequence: "${CICD_EXECUTION_SEQUENCE}"
         web.deployName: "${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web"
-    when:
-      branch:
-        include:
-        - skip
+  when:
+    branch:
+      include:
+      - skip
 
 - name: Test--ZAP
   steps:
