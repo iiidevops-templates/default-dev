@@ -111,8 +111,8 @@ stages:
       targetKey: rancher_url
     runScriptConfig:
       image: iiiorg/deployment-waiter:0.0.2
-      shellScript: 'rancher login ${rancher_url} -t ${rancher_api_token} --skip-verify;
-        bash /app/run.sh;'
+      shellScript: rancher login ${rancher_url} -t ${rancher_api_token} --skip-verify;
+        bash /app/run.sh
   when:
     branch:
       include:
