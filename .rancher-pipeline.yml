@@ -16,8 +16,8 @@ stages:
   when:
     branch:
       include:
-      - master
-      - develop
+      - skip-master
+      - skip-develop
 - name: Test--Sonarqube source code scan
   steps:
   - applyAppConfig:
@@ -75,7 +75,7 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
 - name: Deploy--Web
   steps:
   - applyAppConfig:
@@ -95,7 +95,7 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
 - name: Deploy--Wait Web deployment
   steps:
   - env:
@@ -116,7 +116,7 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
 - name: Test--Postman
   steps:
   - applyAppConfig:
@@ -135,7 +135,7 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
 - name: Test--WebInspect
   steps:
   - applyAppConfig:
@@ -153,7 +153,7 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
 - name: Test--ZAP
   steps:
   - applyAppConfig:
@@ -172,7 +172,7 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
 - name: Test--SideeX
   steps:
   - applyAppConfig:
@@ -191,4 +191,4 @@ stages:
   when:
     branch:
       include:
-      - master
+      - skip-master
