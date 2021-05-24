@@ -3,10 +3,10 @@ stages:
   steps:
   - env:
       PLUGIN_BUILD_ARGS: --progress=tty --network=host
-      PLUGIN_DEBUG: true
-      PLUGIN_INSECURE: true
+      PLUGIN_DEBUG: 'true'
+      PLUGIN_INSECURE: 'true'
       PLUGIN_MIRROR: https://harbor-dev3.iiidevops.org
-      PLUGIN_MTU: 1000
+      PLUGIN_MTU: '1000'
     publishImageConfig:
       buildContext: .
       dockerfilePath: ./Dockerfile
@@ -16,7 +16,8 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
+      - develop
 - name: Test--Sonarqube source code scan
   steps:
   - applyAppConfig:
@@ -74,7 +75,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Deploy--Web
   steps:
   - applyAppConfig:
@@ -93,7 +94,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Deploy--Wait Web deployment
   steps:
   - env:
@@ -110,12 +111,11 @@ stages:
     runScriptConfig:
       image: iiiorg/deployment-waiter:0.0.2
       shellScript: 'rancher login ${rancher_url} -t ${rancher_api_token} --skip-verify;
-
         bash /app/run.sh;'
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--Postman
   steps:
   - applyAppConfig:
@@ -125,7 +125,7 @@ stages:
         git.repoName: ${CICD_GIT_REPO_NAME}
         git.url: ${CICD_GIT_URL}
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
-        web.deployName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web
+        web.deployName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-serv
         web.port: 3000
       catalogTemplate: cattle-global-data:iii-dev-charts3-test-postman
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-pm
@@ -134,8 +134,8 @@ stages:
   when:
     branch:
       include:
-      - skip
-- name: Test--Webinspect
+      - master
+- name: Test--WebInspect
   steps:
   - applyAppConfig:
       answers:
@@ -144,7 +144,7 @@ stages:
         git.repoName: ${CICD_GIT_REPO_NAME}
         git.url: ${CICD_GIT_URL}
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
-        web.deployName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web
+        web.deployName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-serv
       catalogTemplate: cattle-global-data:iii-dev-charts3-test-webinspect
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-wi
       targetNamespace: ${CICD_GIT_REPO_NAME}
@@ -152,7 +152,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--ZAP
   steps:
   - applyAppConfig:
@@ -171,7 +171,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--SideeX
   steps:
   - applyAppConfig:
