@@ -1,8 +1,7 @@
-# FROM node:alpine
 #FROM dockerhub/library/node:alpine
 
+#COPY app /usr/app
 #WORKDIR /usr/app
-#COPY . .
 #RUN npm install
 #EXPOSE 3000
-#CMD node app.js
+#CMD node sample.js
