@@ -38,8 +38,7 @@ stages:
   when:
     branch:
       include:
-      - master
-      - develop
+      - skip-master
 
 - name: Deploy--Set Web environment variables
   iiidevops: deployed-environments
