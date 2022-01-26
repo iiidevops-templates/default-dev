@@ -16,3 +16,5 @@ default develop template.
 | ASP.NET Core - MVC web |
 | ---------------------- |
 |                        |
+
+## SonarQube 其他語言支援或進階協助，可參考[SonarQube官方文件](https://docs.sonarqube.org/8.9/analysis/languages/overview/)
