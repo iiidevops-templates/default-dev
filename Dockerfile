@@ -1,4 +1,4 @@
-FROM dockerhub/library/node:alpine
+FROM dockerhub/library/php:7.1-cli
 
 COPY app /var/www/html
 WORKDIR /var/www/html
