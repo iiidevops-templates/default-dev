@@ -5,7 +5,7 @@ default develop template.
 
 
 
-## 如果您需要 Java Gradle, Maven 或是 .NET, 請改選與該程式語言相關的框架範本 Exp. 
+## 如果您需要 Java Gradle, Maven 或是 .NET 等需要編譯之語言, 請改選與該程式語言相關的框架範本 Exp. 
 
 | Java Spring Boot (Gradle) - Hello example              |
 | ------------------------------------------------------ |
