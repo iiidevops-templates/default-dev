@@ -1,4 +1,4 @@
-FROM dockerhub/library/php:7.1-cli
+FROM dockerhub/library/php:7.4.29-cli
 
 COPY app /var/www/html
 WORKDIR /var/www/html
