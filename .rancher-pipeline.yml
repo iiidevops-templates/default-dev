@@ -129,7 +129,7 @@ stages:
         web.port: 80
         kube.ingress.base_domain: ingress-dev3.iiidevops.org
         kube.ingress.proxy_body_size: 1m
-        volumeMounts.enabled: true
+        volumeMounts.enabled: false
         volumeMounts.nfs.enabled: true
         volumeMounts.nfs.server: 10.20.0.96
         volumeMounts.nfs.path: /iiidevopsNFS/devops-data/project-data
