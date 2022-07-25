@@ -168,14 +168,14 @@ stages:
         git.commitID: ${CICD_GIT_COMMIT}
         git.repoName: ${CICD_GIT_REPO_NAME}
         git.url: ${CICD_GIT_URL}
-        harbor.host: harbor-dev3.iiidevops.org
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         web.deployName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-serv
         web.port: 80
+        harbor.host: harbor-dev3.iiidevops.org
       catalogTemplate: cattle-global-data:iii-dev-charts3-test-zap
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-zap
       targetNamespace: ${CICD_GIT_REPO_NAME}
-      version: 0.2.1
+      version: 0.2.3
   when:
     branch:
       include:
