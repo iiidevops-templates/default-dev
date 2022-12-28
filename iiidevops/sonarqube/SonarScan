@@ -9,6 +9,6 @@
 #cd app;
 #npm install;
 
-# run sonarqube
+## run sonarqube
 #cd ..
 /usr/bin/entrypoint.sh sonar-scanner;
