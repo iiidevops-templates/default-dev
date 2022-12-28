@@ -1,10 +1,13 @@
 # This is comment
 # ----  注意事項 Start ---- #
-# 1. 此黑白名單[iiidevops/app.blacklist]僅供 SonarQube 與 CheckMarx 進行檔案或資料夾掃描過濾
-# 1.1 若僅需要對 SonarQube 進行設定，則請於目前路徑下，至sonarqube 資料夾內新增 app.blacklist（黑名單） 或 app.whitelist（白名單）[ex. iiidevops/sonarqube/app.blacklist]。
-# 1.2 若僅需要對 CheckMarx 進行設定，則請於目前路徑下，至checkmarx 資料夾內新增 app.blacklist（黑名單） 或 app.whitelist（白名單）[ex. iiidevops/sonarqube/app.blacklist]。
+# 1. 此黑名單[iiidevops/app.blacklist]僅供 SonarQube 與 CheckMarx 進行檔案或資料夾掃描過濾
+# 1.1 若欲改成白名單，可直接新增 app.whitelist, 設置方式同黑名單。
+# 1.2 [!!]黑、白名單一次只能套用黑或白名單，它無法混用。故建置僅留您需要的篩選設定檔，不要同時留有黑白名單。
+# 
+# 2. 若僅需要對 SonarQube 進行設定，則請於目前路徑下，至sonarqube 資料夾內新增 app.blacklist（黑名單） 或 app.whitelist（白名單）[ex. iiidevops/sonarqube/app.blacklist]。
+# 2.1 若僅需要對 CheckMarx 進行設定，則請於目前路徑下，至checkmarx 資料夾內新增 app.blacklist（黑名單） 或 app.whitelist（白名單）[ex. iiidevops/sonarqube/app.blacklist]。
 #
-# 2. 此黑名單名單亦可針對分支進行指定設定，其檔案名稱設置規則如下： app.blacklist.{branch} ex. app.blacklist.develop  
+# 3. 此黑名單名單亦可針對分支進行指定設定，其檔案名稱設置規則如下： app.blacklist.{branch} ex. app.blacklist.develop  
 # ----  注意事項 end ---- #
 
 # ----  本設置方式遵循 git ignore pattern ---- #
