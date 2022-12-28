@@ -1,1 +1,1 @@
-/usr/bin/entrypoint.sh sonar-scanner;
+#/usr/bin/entrypoint.sh sonar-scanner;
